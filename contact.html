@@ -1,0 +1,111 @@
+<?php
+$poruka = "";
+if(isset($_POST['btnPosalji'])){
+  
+  $to = "draganatoskee@gmail.com"; 
+  
+  $subject = "Poruka sa sajta - " . $_POST['subject'];
+  
+  $message = "Pozdrav\n\n ";
+  $message .= "Ime i prezime: " . $_POST['ime'] . "\n\n";
+  $message .= "E-mail: " . $_POST['mail'] . "\n\n";
+  $message .= "Tekst: " . $_POST['tekst'];
+  
+  $header = "From:" . $_POST['mail'] . "\r\n".
+            "MIME-Version: 1.0\r\n".
+            "Content-type: text/plain; charset=UTF-8\r\n";
+
+  mail($to,$subject,$message,$header);
+  $poruka ="Poruka je poslata";
+}
+?>
+    <!DOCTYPE html>
+    <html lang="sr">
+
+    <head>
+        <title>Манастир Троноша</title>
+        <!----meta tags---->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="description" content="Manastir Tronosa">
+        <meta name="keywords" content="Tronosa,manastir,loznica,radjevina,Krupanj,Jadar,Cesma devet Jugovica">
+        <!------fontawesome---->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <!-----css------------>
+        <link rel="stylesheet" type="text/css" href="./css/tronosa.css">
+        <!------bootstrap and js---->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+    <body class="contact">
+        <nav class="navbar navbar-inverse bg-light navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand navbar-left" href="index1.html">Манастир Троноша</a> </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index1.html">О манастиру</a></li>
+                        <li><a href="osnivanje.html">Оснивање и историја</a></li>
+                        <li><a href="arhitektura.html">Архитектура</a></li>
+                        <li><a href="index.php">Распоред крштења</a></li>
+                        <li><a href="galerija.html">Галерија</a></li>
+                        <li><a href="#">Контакт</a></li>
+                    </ul>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 maps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.69705837938!2d19.28139201523937!3d44.45988277910184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475964bf551aa921%3A0xa09fdc2e2d9e4ed8!2sTronosha+Monastery!5e0!3m2!1sen!2srs!4v1547920182762" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="form-input">
+                    <div class="col-md-6">
+                        <h2>КОНТАКТ</h2>
+                        <form action="contact.php" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Име" required> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Презиме" required> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Eмаил" required> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" placeholder="Телефон" required> </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Текст поруке..." rows="3" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-light" type="Пошаљи">Пошаљи</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="col-lg-6">
+                            <div class="text-white">
+                                <h2>Aдреса</h2> <i class="fas fa-phone">015 846 003</i>
+                                <br> <i class="fa fa-envelope">manastirtronosa@gmail.com</i>
+                                <br> <i class="fas fa-globe">Koренита 15302 Лозница</i>
+                                <br> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>манастир Троноша Copyright@copy</p>
+            </footer>
+    </body>
+
+    </html>
